@@ -91,6 +91,8 @@ source $ZSH/oh-my-zsh.sh
 #ALIAS
 alias ls='colorls --sd --git-status'
 
+alias nv='nvim'
+
 
 # ColorsLS
 source $(dirname $(gem which colorls))/tab_complete.sh
