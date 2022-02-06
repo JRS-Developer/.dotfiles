@@ -89,7 +89,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 #ALIAS
-alias ls='colorls --sd --git-status'
+alias lc='colorls --sd --git-status'
 alias ls='exa --icons'
 
 alias nv='nvim'
