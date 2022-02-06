@@ -1,4 +1,5 @@
 README.md
+.git
 
 *.txt   # ignore *.txt in the target directory
 */*.txt # ignore *.txt in subdirectories of the target directory
