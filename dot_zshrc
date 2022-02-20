@@ -105,6 +105,9 @@ export PATH=$HOME/.config/rofi/bin:$PATH
 # RubyGems
 export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
 
+# Composer
+export PATH=$HOME/.config/composer/vendor/bin:$PATH
+
 (cat ~/.cache/wal/sequences &)
 
 # Alternative (blocks terminal for 0-3ms)
