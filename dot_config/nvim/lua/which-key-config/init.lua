@@ -107,6 +107,38 @@ local mappings = {
 		s = { "<cmd>MarkdownPreviewStop<cr>", "Stop" },
 		t = { "<cmd>MarkdownPreview<cr>", "Toggle" },
 	},
+	n = {
+		n = { "<cmd>NvimTreeToggle <cr>", "NvimTreeToggle" },
+		r = { "<cmd>NvimTreeRefresh <cr>", "NvimTreeRefresh" },
+	},
+	d = {
+		name = "DAP",
+		c = { ':lua require("dap").continue()<CR>', "Continue" },
+		t = { ':lua require("dap").terminate()<CR>', "Terminate" },
+		l = { ':lua require("dap").run_last()<CR>', "Run Last Debugging Config" },
+		d = { ':lua require("dap").repl.open()<CR>', "Open Debug Console" },
+		b = {
+			name = "Breakpoint",
+			t = { ':lua require("dap").toggle_breakpoint()<CR>', "Toggle" },
+			c = {
+				':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+				"Set conditional",
+			},
+			l = {
+				':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+				"With Log Point Message",
+			},
+		},
+		s = {
+			name = "Step",
+			o = { ':lua require("dap").step_over()<CR>', "Step Over" },
+			O = { ':lua require("dap").step_into()<CR>', "Step Into" },
+			i = { ':lua require("dap").step_out()<CR>', "Step Out" },
+			b = { ':lua require("dap").step_back()<CR>', "Step Back" },
+			c = { ':lua require("dap").run_to_cursor()<CR>', "Run To Cursor" },
+		},
+		u = { ':lua require("dapui").toggle()<CR>', "Toggle UI" },
+	},
 }
 
 which_key.register(mappings, opts)

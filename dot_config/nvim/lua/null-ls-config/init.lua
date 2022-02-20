@@ -3,13 +3,16 @@ local builtins = null_ls.builtins
 
 local sources = {
 	-- Formatters
-	builtins.formatting.stylua,
-	builtins.formatting.black,
-	builtins.formatting.gofmt,
+	builtins.formatting.stylua, --Lua
+	builtins.formatting.black, --Python
+	builtins.formatting.gofmt, --Go
 	builtins.formatting.prettierd.with({
 		prefer_local = "node_modules/.bin",
 	}),
-	builtins.formatting.phpcsfixer,
+	builtins.formatting.phpcbf, -- Php Code Sniffer Formatter
+	builtins.diagnostics.phpcs, -- Php Code Sniffer Linter
+	builtins.diagnostics.pylama, -- Python linter, useful?
+	builtins.formatting.rustywind, --Tailwind class order
 }
 
 null_ls.setup({
