@@ -48,7 +48,7 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "JetBrainsMono Nerd Font:size=10;4"
+font-0 = "JetBrainsMono Medium Nerd Font:size=10;4"
 font-1 = siji:pixelsize=10;1
 
 modules-left = i3

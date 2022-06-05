@@ -11,9 +11,9 @@
 
 set $mod Mod4
 set $Alt Mod1
-bindsym $mod+m exec --no-startup-id ~/.config/rofi/bin/menu_mpd
-bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
+# bindsym $mod+m exec --no-startup-id ~/.config/rofi/bin/menu_mpd
+# bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
+# bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -171,30 +171,27 @@ gaps inner 10
 smart_borders on
 # smart_gaps on
 
-# POLYBAR AND TELEGRAM PALETTE AND DISCORD AND PYWALFOX(FIREFOX)
-
-# exec_always --no-startup-id "$HOME/.config/polybar/launch.sh --material && $HOME/.config/polybar/material/scripts/pywal.sh ~/Imágenes/ --saturate 1.0 && ~/.telegram-palette-gen/telegram-palette-gen --wal && pywal-discord -t default && wal-discord -t && pywalfox update"
-
-exec_always --no-startup-id "wal -i ~/Imágenes/ && $HOME/.config/polybar/launch.sh && ~/.telegram-palette-gen/telegram-palette-gen --wal && pywal-discord -t default && wal-discord -t && pywalfox update"
+# POLYBAR
+exec_always --no-startup-id "wal -i ~/Imágenes/ -s -t"
+exec --no-startup-id "$HOME/.config/polybar/launch.sh;"
 
 # REDSHIFT
-exec_always --no-startup-id "killall redshift; redshift-gtk;"
+exec --no-startup-id "redshift-gtk;"
 # COMPTON
-exec_always --no-startup-id "killall picom; picom;"
+# exec --no-startup-id "picom;"
 
 # I3 COLORS PYWAL
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
 
 # KEYBOARD
-exec "setxkbmap -layout us,es"
-exec_always "setxkbmap -option 'grp:alt_space_toggle'"
+exec "setxkbmap -layout us,es -option 'grp:alt_space_toggle'"
 
 # Wifi
-exec_always --no-startup-id "killall nm-applet; nm-applet;"
+exec --no-startup-id "nm-applet;"
 
 #Brightness
-exec "xfce4-power-manager"
+exec --no-startup-id "xfce4-power-manager;"
 
 default_border pixel 3
 # class                 border  backgr. text indicator child_border
