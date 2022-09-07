@@ -168,12 +168,16 @@ bindsym $mod+r mode "resize"
 #I3-GAPS
 
 gaps inner 10
+gaps top 30
 smart_borders on
 # smart_gaps on
 
 # POLYBAR
 exec_always --no-startup-id "wal -i ~/Imágenes/ -s -t"
-exec --no-startup-id "$HOME/.config/polybar/launch.sh;"
+exec_always --no-startup-id "zsh $HOME/.config/polybar/launch.sh"
+
+# PICOM
+exec --no-startup-id "picom"
 
 # REDSHIFT
 exec --no-startup-id "redshift-gtk;"

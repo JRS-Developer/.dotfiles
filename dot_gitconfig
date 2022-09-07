@@ -1,3 +1,7 @@
 [user]
 	name = Jose Sanchez
 	email = sanchezjoserafael25@gmail.com
+[color]
+	ui = auto
+[core]
+	safecrlf = false

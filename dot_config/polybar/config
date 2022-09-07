@@ -1,481 +1,236 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
-;==========================================================
-
 [colors]
-background = ${xrdb:color0:#222}
-foreground = ${xrdb:color7:#222}
-foreground-alt = ${xrdb:color7:#222}
-primary = ${xrdb:color1:#222}
-secondary = ${xrdb:color2:#222}
-alert = ${xrdb:color3:#222}
+disabled = #707880
+Rosewater = #f5e0dc
+Flamingo = #f2cdcd
+Pink = #f5c2e7
+Mauve = #cba6f7
+Red = #f38ba8
+Maroon = #eba0ac
+Peach = #fab387
+Yellow = #f9e2af
+Green = #a6e3a1
+Teal = #94e2d5
+Sky = #89dceb
+Sapphire = #74c7ec
+Blue = #89b4fa
+Lavender = #b4befe
+Base = #1e1e2e
+Mantle = #181825
 
-[bar/mybar]
-;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 30
-; offset-x = 1%
-; offset-y = 1%
-radius = 5
+[bar/left]
+
+width = 15%
+offset-x = 1%
+offset-y = 1%
+height = 22pt
+fixed-center = true
+radius = 5.0
+
+background = ${colors.Mantle}
+foreground = ${colors.Lavender}
+
+line-size = 1pt
+
+font-0 = "JetBrainsMono Medium Nerd Font:weight=bold:size=9;2"
+font-1 = "JetBrainsMono Medium Nerd Font:size=10;3"
+font-2 = "JetBrainsMono Medium Nerd Font:size=11;3"
+
+modules-center = xworkspaces
+
+enable-ipc = false
+
+wm-restack = i3
+override-redirect = true
+
+[bar/middle]
+
+width = 22%
+offset-x = 41%
+offset-y = 1%
+height = 22pt
 fixed-center = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.Mantle}
+foreground = ${colors.Lavender}
 
-line-size = 3
-line-color = #f00
+line-size = 1pt
+radius = 5.0
 
-border-size =  8
-border-color = #00000000
+font-0 = "JetBrainsMono Medium Nerd Font:weight=bold:size=9;2"
+font-1 = "JetBrainsMono Medium Nerd Font:size=10;3"
+font-2 = "JetBrainsMono Medium Nerd Font:size=11;3"
 
-padding-left = 0
-padding-right = 0
+modules-center = day space sep space date space sep space time space
 
-module-margin-left = 1
-module-margin-right = 1
+enable-ipc = true
 
-font-0 = "JetBrainsMono Medium Nerd Font:size=10;4"
-font-1 = siji:pixelsize=10;1
-
-modules-left = i3
-modules-center = title
-modules-right = xkeyboard backlight-acpi pulseaudio battery wlan date powermenu
+wm-restack = i3
+override-redirect = true
 
 tray-position = right
-tray-padding = 1
-;tray-background = #0063ff
 
-;wm-restack = bspwm
-;wm-restack = i3
+tray-maxsize = 14
 
-;override-redirect = true
+[bar/right]
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+width = 22%
+offset-x = 77%
+offset-y = 1%
+height = 22pt
+fixed-center = true
+radius = 5.0
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+background = ${colors.Mantle}
+foreground = ${colors.Lavender}
 
-cursor-click = pointer
-cursor-scroll = ns-resize
+line-size = 1pt
 
-; Put the bar at the bottom of the screen
-bottom = true
+font-0 = "JetBrainsMono Medium Nerd Font:weight=bold:size=9;2"
+font-1 = "JetBrainsMono Medium Nerd Font:size=10;3"
+font-2 = "JetBrainsMono Medium Nerd Font:size=11;3"
 
-[module/title]
-type = internal/xwindow
+modules-left = space pulseaudio space sep space backlight space sep space battery space sep space wlan space space sep space xkeyboard space space
 
-; Available tags:
-;   <label> (default)
-format = <label>
-format-background = 
-format-foreground = ${colors.primary}
-format-padding = 0
+enable-ipc = true
 
-; Available tokens:
-;   %title%
-; Default: %title%
-label = %title%
-label-maxlen = 50
+wm-restack = i3
+override-redirect = true
 
-; Used instead of label when there is no window title
-; Available tokens:
-;   None
-label-empty = 
-label-empty-foreground = #707880
+[module/xworkspaces]
+type = internal/xworkspaces
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+label-active =  
+label-active-padding = 2
+label-active-foreground = ${colors.Mauve}
+label-active-font = 2
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.primery}
-label-indicator-underline = ${colors.secondary}
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
+label-occupied =  
 label-occupied-padding = 2
+label-occupied-font = 2
 
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
+label-empty =  
+label-empty-foreground = ${colors.disabled}
 label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-background = ${colors.primary}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
-label-unfocused-padding = 2
-
-; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = ﭣ
-icon-stop = ﭦ
-icon-play = 奈
-icon-pause = 
-icon-next = ﭡ
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <ramp>
-label = %percentage%%
-
-; Only applies if <bar> is used
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-; Only applies if <ramp> is used
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
-ramp-5 = 
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-label = %percentage:2%%
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = %percentage_used%%
-
-[module/wlan]
-type = internal/network
-interface = wlp2s0
-interval = 3.0
-
-; Available tags:
-;   <label-connected> (default)
-;   <ramp-signal>
-format-connected = <ramp-signal> <label-connected>
-
-; Available tags:
-;   <label-disconnected> (default)
-format-disconnected = <label-disconnected>
-format-disconnected-prefix = 睊
-
-; Available tags:
-;   <label-connected> (default)
-;   <label-packetloss>
-;   <animation-packetloss>
-format-packetloss = <animation-packetloss> <label-connected>
-
-; All labels support the following tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %local_ip6% [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %upspeed%   [wireless+wired]
-;   %downspeed% [wireless+wired]
-;   %linkspeed% [wired]
-
-; Default: %ifname% %local_ip%
-label-connected = %essid%
-; label-connected-foreground = #eefafafa
-
-; Default: (none)
-label-disconnected = "%{A1:networkmanager_dmenu &:} Offline%{A}"
-label-disconnected-foreground = #66ffffff
-
-; Default: (none)
-;label-packetloss = %essid%
-;label-packetloss-foreground = #eefafafa
-
-; Only applies if <ramp-signal> is used
-ramp-signal-0 = 直
-ramp-signal-1 = 
-
-[module/eth]
-type = internal/network
-interface = enp1s0
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-[module/date]
-type = internal/date
-interval = 5
-
-date =
-date-alt = 
-
-time = " %I:%M %p"
-time-alt = " %a, %d %b %Y"
-
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
-
-label = %date% %time%
+label-empty-font = 2
 
 [module/pulseaudio]
 type = internal/pulseaudio
+format-volume-prefix = "墳 "
+format-volume-prefix-foreground = ${colors.Rosewater}
+format-volume = <label-volume>
+format-volume-prefix-font = 3
 
-format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
-label-volume-foreground = ${root.foreground}
 
-label-muted = 婢 Muted
-label-muted-foreground = #666
+label-muted = muted
+label-muted-foreground = ${colors.disabled}
 
-; Only applies if <ramp-volume> is used
-ramp-volume-0 = 奄
-ramp-volume-1 = 墳
-ramp-volume-2 = 
-; Right and Middle click
-click-right = pavucontrol
-; click-middle = 
+[network-base]
+type = internal/network
+interval = 5
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-disconnected = disconnected
+format-connected-foreground = ${colors.Lavender}
 
-[module/alsa]
-type = internal/alsa
+[module/wlan]
+inherit = network-base
+interface-type = wireless
+interface = wlp2s0
+label-connected-font = 3
+label-connected =  
+label-connected-foreground = ${colors.Rosewater}
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
+[module/day]
+type = internal/date
+interval = 1
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+date = %A
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+label = %date%
+label-foreground = ${colors.Lavender}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %d-%m-%Y
+
+label = %date%
+label-foreground = ${colors.Lavender}
+
+[module/time]
+type = internal/date
+interval = 1
+
+date = %I:%M
+
+label = %date%
+label-foreground = ${colors.Lavender}
 
 [module/battery]
 type = internal/battery
 battery = BAT1
 adapter = ACAD
-full-at = 98
-
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
-
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+poll-interval = 5
+full-at = 99
+format-full-prefix = "  "
+format-charging-prefix = "  "
+format-discharging-prefix = "  "
+format-full-prefix-foreground = ${colors.Rosewater}
+format-charging-prefix-foreground = ${colors.Rosewater}
+format-discharging-prefix-foreground = ${colors.Red}
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
 
 [module/backlight]
-type = custom/text
-content = 
+type = internal/backlight
 card = intel_backlight
+format-prefix = " "
+format-prefix-foreground = ${colors.Rosewater}
+format-prefix-font = 3
 
-content-background = ${color.bg}
-content-foreground = ${color.green}
+[module/update]
+type = custom/script
+exec = $HOME/.config/polybar/update.sh
+interval = 960
+format-prefix = "ﰵ "
+format-prefix-font = 3
+label = %output%
+format-prefix-foreground = ${colors.Rosewater}
+click-left = "kitty yay -Syu"
 
-click-left = applet_backlight
+[module/power]
+type = custom/text
+content =  
+content-font = 3
+content-foreground = ${colors.Red}
+content-margin = 1
+click-left = "sh ~/.local/bin/powermenu"
+
+; decor
+
+[module/sep]
+type = custom/text
+content = "|"
+content-foreground = ${colors.disabled}
+
+[module/space]
+type = custom/text
+content = " "
+
+[module/xkeyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+label-indicator-on-capslock = C
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5
+pseudo-transparency = false
 
 ; vim:ft=dosini
